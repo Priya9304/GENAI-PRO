@@ -8,5 +8,10 @@ const app = express();
 
 app.use(express.json());
 
+const authRouter = require("./routes/auth.routes");
+
+//api/auth is prefix we need to use before using the authRoutes
+app.use("/api/auth",authRouter);
+
 
 module.exports = app;

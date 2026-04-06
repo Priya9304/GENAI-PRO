@@ -17,5 +17,5 @@ const UserSchema = new mongoose.Schema({
     }
     //model will define the userSchema will store in which collection
 })
-    const userModel = mongoose.model("users",userSchema)
+    const userModel = mongoose.model("users",UserSchema)
     module.exports = userModel
