@@ -1,4 +1,5 @@
 const userModel = require("../models/user.model")
+const bcrypt = require('bcryptjs');
 
 
   /**
@@ -22,6 +23,19 @@ async function registerUserController(req, res){
         message:"User Already exists with this username or email id"
     })
   }
+  
+
+  //bcryptjs is used for hashing of password
+  //jsonwebtoken is used to create jwt webtoken
+  //cookie-parser is used to set the token to cookie and read the token form cookie
+
+  const hash = await bcrypt.hash(password,10);
+
+  const user = await userModel.create({
+    username,
+    email,
+    password:hash
+  })
 }
 
 module.exports={
