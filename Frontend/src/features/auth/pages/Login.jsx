@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import "../auth.form.scss"
 import { useNavigate,Link } from 'react-router-dom'
+import "../auth.form.scss"
 import { useAuth } from '../hooks/useAuth'
 
 const Login = () => {
@@ -12,8 +12,8 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-            await handleLogin({ email, password })
-            navigate('/')
+        await handleLogin({ email, password })
+        navigate('/')
     }
 
     if(loading){
@@ -45,7 +45,6 @@ const Login = () => {
                 <button className="button primary-button">Login</button>
             </form>
             <p>Don't have an account? <Link to={"/register"}>Register</Link></p>
-
         </div>
     </main>
   )

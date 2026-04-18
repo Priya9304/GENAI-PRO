@@ -4,20 +4,16 @@ import { useAuth } from '../hooks/useAuth'
 
 const Register = () => {
     const navigate = useNavigate()
-    const { loading, handleRegister } = useAuth()
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-
+    
+    const { loading, handleRegister } = useAuth()
+    
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (!username || !email || !password) {
-            return alert("Please fill in all fields.")
-        }
-        const success = await handleRegister({ username, email, password })
-        if (success) {
-            navigate('/login')
-        }
+        await handleRegister({ username, email, password })
+        navigate('/')
     }
 
     if (loading) {
@@ -34,7 +30,7 @@ const Register = () => {
                         <label htmlFor="username">Username</label>
                         <input
                             value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            onChange={(e) => {setUsername(e.target.value)}}
                             type="text"
                             id='username'
                             name='username'
@@ -45,9 +41,9 @@ const Register = () => {
                         <label htmlFor="email">Email</label>
                         <input
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => {setEmail(e.target.value)}}
                             type="email"
-                            id='email'
+                            id="email"
                             name='email'
                             placeholder='Enter Email'
                         />
@@ -56,7 +52,7 @@ const Register = () => {
                         <label htmlFor="password">Password</label>
                         <input
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e) => {setPassword(e.target.value)}}
                             type="password"
                             id='password'
                             name='password'
