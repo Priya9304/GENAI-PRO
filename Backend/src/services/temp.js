@@ -34,6 +34,7 @@ Experience:
 Achievements:
 - Solved 300+ DSA problems on LeetCode
 - Participated in coding contests
+-Patent Published
 
 `;
 
