@@ -1,16 +1,18 @@
 const { GoogleGenAI } = require("@google/genai");
+const {zod} = require("zod");
+const {zodToJsonSchema} = require("zod-to-json-schema")
 
 const ai = new GoogleGenAI({
     apiKey: process.env.GOOGLE_GENAI_API_KEY
 })
 
-async function invokeGeminiAi(){
-    const response = await ai.models.generateContent({
-        model:"gemini-2.5-flash",
-        contents:"Hello gemini! Explain what is Interview"
-    })
+const interviewReportSchema = z.object({
 
-    console.log(response.text)
+})
+
+async function generateInterviewReport({resume,selfDescription,jobDescription}){
+
+
 }
 
 module.exports = invokeGeminiAi
