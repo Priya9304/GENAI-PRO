@@ -15,7 +15,9 @@ app.use(cors({
 })) // It controls who is allowed to access your backend API from a browser.
 
 const authRouter = require("./routes/auth.routes");
+const interviewRouter = require("./routes/interview.routes")
 
 //api/auth is prefix we need to use before using the authRoutes
 app.use("/api/auth",authRouter);
+app.use("/api/interview",interviewRouter);
 module.exports = app;
